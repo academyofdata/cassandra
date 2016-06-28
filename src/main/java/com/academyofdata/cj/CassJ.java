@@ -1,4 +1,4 @@
-package com.academyofdata.metrosystems;
+package com.academyofdata.cj;
 
 
 import com.datastax.driver.core.Cluster;
