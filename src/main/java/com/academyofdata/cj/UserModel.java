@@ -40,7 +40,6 @@ public class UserModel {
     }
 
     public static boolean save(User u) {
-        System.out.println(">>>>>>>>>>>>>>>>>>saving user "+u.toJson());
         Statement stmt = QueryBuilder.insertInto(_keyspace,_table)
                 .value("uid",UUID.fromString(u.uid))
                 .value("age",u.age)
@@ -49,11 +48,11 @@ public class UserModel {
                 .value("gender",u.gender)
                 //.ifNotExists()
                 .setConsistencyLevel(ConsistencyLevel.ONE);
-        System.out.println(">>>>>>>>>>>>>>>>>>query built "+stmt.toString());
+
         try {
             ResultSet rs = _session.execute(stmt);
 
-            System.out.println(">>>>>>>>>>>>>>>>>>> result " + rs.toString());
+            
         } catch (Exception e){
             e.printStackTrace();
             return false;

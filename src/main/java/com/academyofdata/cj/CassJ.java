@@ -100,8 +100,7 @@ public class CassJ {
 
         post(usersPath, (request,response) -> {
             User u = User.fromJson(request.body());
-            System.out.println("Obj is "+u.toJson());
-            if(UserModel.save(u)) {
+             if(UserModel.save(u)) {
                 response.status(201);
                 return u.toJson();
             } else {
